@@ -1,17 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const PokemonCard = (props) => {
-
-
+export default function PokemonCard (props){
     return (
-        <div>
-            <div>
-                <h1>Nombre : {this.props.perro}</h1>
-                <h3>Id: {}</h3>
-                <h3>Type: {}</h3>
+    <div>
+        <hr/>
+        <h2>Propiedades de Pokemon</h2>
+            <div className="container">
+                <h2>Nombre :<strong>{props.nombre}</strong></h2>
+                <h3>Id: {props.identificador}</h3>
+                <h3>Tipo: {props.tipo.join(",")}</h3>
             </div>
-        </div>
-    )
-}
+    </div>
+     );
+    }
 
-export default PokemonCard
+
+

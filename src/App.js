@@ -2,7 +2,7 @@
 import './App.css';
 import PokemonCard from './component/PokemonCard';
 
-let pokemon = [
+const pokemon = [
   { "id": 1, "name": "Bulbasaur", "types": ["poison", "grass"] },
   { "id": 5, "name": "Charmeleon", "types": ["fire"] },
   { "id": 9, "name": "Blastoise", "types": ["water"] },
@@ -28,19 +28,16 @@ let pokemon = [
   { "id": 148, "name": "Dragonair", "types": ["dragon"] }
 ];
 
+
+
 function App() {
-
   return (
-    <div className="App-header">
-      <div className="pc">
-       {     
-       pokemon.map((poke) => {
-         <PokemonCard perro={poke.id}/>
-         console.log("perro")
-       })
-
-      } 
-      </div>
+    <div className="App">
+      {
+      pokemon.map((item, index) => (
+      <PokemonCard key={index} identificador={item.id} nombre={item.name} tipo={item.types}/>
+      ))
+      }
     </div>
   );
 }
