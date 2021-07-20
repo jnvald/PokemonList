@@ -1,18 +1,37 @@
-import React from "react";
+import React,{useState} from "react";
 
-export default function PokemonCard (props){
-    return (
-    <div>
-        <hr/>
-        <h2>Propiedades de Pokemon</h2>
-            <div className="container">
-                <h2>Nombre :<strong>{props.nombre}</strong></h2>
-                <h3>Id: {props.identificador}</h3>
-                <h3>Tipo: {props.tipo.join(",")}</h3>
-            </div>
+const PokemonCard = (props) => {
+  
+  const [luchando, setLuchando] = useState(false);
+
+  const yoteElijo = () => {
+    luchando == false ? setLuchando(true): setLuchando(false);//if de hacker de Fernando :)
+  };
+
+  const PokeStyles = {
+    border: "1px solid black",
+    backgroundColor: "" + props.bg + "",
+    width: "200px",
+    margin: "auto",
+    textAlign: "center",
+  };
+
+  const pokeImgname =
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/";
+  const pokeImgNumber = props.id;
+  const pokeImg = pokeImgname + pokeImgNumber + ".png";
+
+  return (
+    <div className="pokemoncard" style={PokeStyles}>
+      <p>{props.name}</p>
+      <p>{props.id}</p>
+      <p>{props.types}</p>
+      <img src={pokeImg} />
+      <button onClick={yoteElijo}>state: {luchando.toString()}</button>
     </div>
-     );
-    }
+  );
+};
 
+export default PokemonCard;
 
 
